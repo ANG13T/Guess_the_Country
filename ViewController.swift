@@ -32,6 +32,8 @@ class ViewController: UIViewController {
         flag2.layer.borderColor = UIColor.lightGray.cgColor;
         flag3.layer.borderColor = UIColor.lightGray.cgColor;
         askQuestion()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(buttonPressed))
     }
     
     func askQuestion(action: UIAlertAction! = nil){
@@ -68,6 +70,12 @@ class ViewController: UIViewController {
             let completeAlert = UIAlertController(title: "You have completed the game!", message: "Your score was \(points)", preferredStyle: .alert)
             present(completeAlert, animated: true)
         }
+    }
+    
+    @objc func buttonPressed(){
+       let vc = UIActivityViewController(activityItems: ["Your score \(points)"], applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
     }
     
 }
