@@ -17,6 +17,9 @@
                         <subviews>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OGw-nP-ZLO">
                                 <rect key="frame" x="107" y="568" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OGw-nP-ZLO" secondAttribute="height" multiplier="2:1" id="jye-1y-yAa"/>
+                                </constraints>
                                 <state key="normal" image="ireland"/>
                                 <connections>
                                     <action selector="flagPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TEd-8G-H1f"/>
@@ -24,6 +27,9 @@
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZh-Jj-kyg">
                                 <rect key="frame" x="107" y="408" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="SZh-Jj-kyg" secondAttribute="height" multiplier="2:1" id="9i8-uj-uoT"/>
+                                </constraints>
                                 <state key="normal" image="germany"/>
                                 <connections>
                                     <action selector="flagPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Ei-dd-bbX"/>
@@ -31,6 +37,9 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxa-Ko-lzJ">
                                 <rect key="frame" x="107" y="248" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wxa-Ko-lzJ" secondAttribute="height" multiplier="2:1" id="9Gc-Zi-9mQ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="1"/>
                                 <state key="normal" image="italy"/>
                                 <connections>
@@ -48,11 +57,14 @@
                         <constraints>
                             <constraint firstItem="OGw-nP-ZLO" firstAttribute="centerX" secondItem="SZh-Jj-kyg" secondAttribute="centerX" id="A2g-Mc-biM"/>
                             <constraint firstItem="ulN-1D-IXu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="CQ8-yg-xQE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="OGw-nP-ZLO" secondAttribute="bottom" constant="20" id="Duv-w8-rxK"/>
                             <constraint firstItem="ulN-1D-IXu" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Mgb-VA-DS2"/>
                             <constraint firstItem="SZh-Jj-kyg" firstAttribute="top" secondItem="wxa-Ko-lzJ" secondAttribute="bottom" constant="60" id="TYq-Wo-Rgf"/>
                             <constraint firstItem="OGw-nP-ZLO" firstAttribute="top" secondItem="SZh-Jj-kyg" secondAttribute="bottom" constant="60" id="cFo-pK-oUo"/>
                             <constraint firstItem="wxa-Ko-lzJ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fPa-Cc-vaQ"/>
                             <constraint firstItem="SZh-Jj-kyg" firstAttribute="centerX" secondItem="wxa-Ko-lzJ" secondAttribute="centerX" id="j2P-v2-Riw"/>
+                            <constraint firstItem="OGw-nP-ZLO" firstAttribute="height" secondItem="SZh-Jj-kyg" secondAttribute="height" id="qRA-Gk-f6D"/>
+                            <constraint firstItem="SZh-Jj-kyg" firstAttribute="height" secondItem="wxa-Ko-lzJ" secondAttribute="height" id="v0e-eq-J01"/>
                             <constraint firstItem="wxa-Ko-lzJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="160" id="wsQ-9s-pe2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
