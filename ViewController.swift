@@ -36,15 +36,32 @@ class ViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(buttonPressed))
     }
     
+  
+    
     func askQuestion(action: UIAlertAction! = nil){
-        countries.shuffle()
-        correctAnswer = Int.random(in: 0...2)
-        flag1.setImage(UIImage(named: countries[0]), for: .normal)
-        flag2.setImage(UIImage(named: countries[1]), for: .normal)
-        flag3.setImage(UIImage(named: countries[2]), for: .normal)
-        
-        title = countries[correctAnswer].uppercased() + "   Score: \(points)"
+        print(questionsAsked)
+        if(questionsAsked <= 10){
+           countries.shuffle()
+            correctAnswer = Int.random(in: 0...2)
+            flag1.setImage(UIImage(named: countries[0]), for: .normal)
+            flag2.setImage(UIImage(named: countries[1]), for: .normal)
+            flag3.setImage(UIImage(named: countries[2]), for: .normal)
+            
+            title = countries[correctAnswer].uppercased() + "   Score: \(points)"
+        }else{
+            let completeAlert = UIAlertController(title: "You have completed the game!", message: "Your score was \(points)", preferredStyle: .alert)
+            completeAlert.addAction(UIAlertAction(title: "Done", style: .cancel))
+              let defaults =  UserDefaults()
+              let highscore = defaults.integer(forKey: "Highscore")
+            print(highscore)
+              if(points > highscore){
+                defaults.set(points, forKey: "Highscore")
+                completeAlert.title = "New Highscore!"
+                }
+             present(completeAlert, animated: true)
+        }
     }
+    
     
     
     @IBAction func flagPressed(_ sender: UIButton) {
@@ -65,12 +82,7 @@ class ViewController: UIViewController {
              ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
              present(ac, animated: true)
             questionsAsked += 1
-        
-        if(questionsAsked == 10){
-            let completeAlert = UIAlertController(title: "You have completed the game!", message: "Your score was \(points)", preferredStyle: .alert)
-            present(completeAlert, animated: true)
         }
-    }
     
     @objc func buttonPressed(){
        let vc = UIActivityViewController(activityItems: ["Your score \(points)"], applicationActivities: [])
